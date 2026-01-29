@@ -18,15 +18,20 @@ flowchart TD
   L --> C["Semantic Cache"]
   C <--> J["LLM Eval Judge"]
 
-  %% Bypass loop around Semantic Cache:
-  %% top path (LLM -> Judge)
-  L -.-> UP[" "]
-  UP -.-> J
+  %% invisible anchors to route lines around Semantic Cache
+  R1(( )):::invis
+  R2(( )):::invis
+  L1(( )):::invis
+  L2(( )):::invis
 
-  %% bottom path (Judge -> LLM)
-  J -.-> DOWN[" "]
-  DOWN -.-> L
+  %% right-side bypass: LLM -> Judge (go around to the right)
+  L -.-> R1 -.-> R2 -.-> J
+
+  %% left-side bypass: Judge -> LLM (go around to the left)
+  J -.-> L1 -.-> L2 -.-> L
 
   J --> S["Solution"]
   S --> UI["UI"]
+
+  classDef invis fill:transparent,stroke:transparent,color:transparent;
 ```
