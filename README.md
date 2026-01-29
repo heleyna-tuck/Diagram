@@ -17,14 +17,14 @@ flowchart TD
 
   L --> C["Semantic Cache"]
 
-  subgraph CACHE_ROW[""]
+  subgraph CACHE_ROW[" "]
     direction LR
     C --- TTL["TTL (1) ... (1 week)"]
   end
 
   C <--> J["LLM Eval Judge"]
 
-  subgraph JUDGE_ROW[""]
+  subgraph JUDGE_ROW[" "]
     direction LR
     J --- RG["RAGAS"]
   end
