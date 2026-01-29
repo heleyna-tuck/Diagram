@@ -15,13 +15,11 @@ flowchart TD
   W --> A
   A --> L["LLM"]
 
-  %% Main vertical flow
   L --> C["Semantic Cache"]
-  C --> J["LLM Eval Judge"]
 
-  %% Extra arrows (one down, one up) directly between LLM and Judge
-  L -.-> J
-  J -.-> L
+  %% Two arrows between Semantic Cache and LLM Eval Judge (down + up)
+  C --> J["LLM Eval Judge"]
+  J --> C
 
   J --> S["Solution"]
   S --> UI["UI"]
