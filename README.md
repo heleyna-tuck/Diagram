@@ -1,7 +1,6 @@
 ```mermaid
 flowchart TD
   U["User Prompt"] --> R["Orch LLM (Router)"]
-  end
 
   R --> E["Eval (Check relevance)"]
   E -->|Relevant| KB["Knowledge Base: Data1, Data2, ... DataN"]
@@ -13,10 +12,10 @@ flowchart TD
 
   L --> C["Semantic Cache"]
 
-  %% Semantic Cache <-> Judge (one line with arrows at both ends)
+  %% Semantic Cache <-> Judge
   C <--> J["LLM Eval Judge"]
 
-  %% LLM <-> Judge (one line with arrows at both ends)
+  %% LLM <-> Judge
   L <--> J
 
   J --> S["Solution"]
