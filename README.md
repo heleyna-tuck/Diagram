@@ -18,6 +18,15 @@ flowchart TD
   L --> C["Semantic Cache"]
   C <--> J["LLM Eval Judge"]
 
+  %% Bypass loop around Semantic Cache:
+  %% top path (LLM -> Judge)
+  L -.-> UP[" "]
+  UP -.-> J
+
+  %% bottom path (Judge -> LLM)
+  J -.-> DOWN[" "]
+  DOWN -.-> L
+
   J --> S["Solution"]
   S --> UI["UI"]
 ```
