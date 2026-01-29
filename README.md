@@ -17,13 +17,11 @@ flowchart TD
 
   L --> C["Semantic Cache"]
 
-  %% Semantic Cache <-> Judge (down + up)
-  C --> J["LLM Eval Judge"]
-  J --> C
+  %% Semantic Cache <-> Judge (one line with arrows at both ends)
+  C <--> J["LLM Eval Judge"]
 
-  %% LLM <-> Judge (bypass around Semantic Cache conceptually)
-  L --> J
-  J --> L
+  %% LLM <-> Judge (one line with arrows at both ends)
+  L <--> J
 
   J --> S["Solution"]
   S --> UI["UI"]
