@@ -1,10 +1,6 @@
 ```mermaid
 flowchart TD
   U["User Prompt"] --> R["Orch LLM (Router)"]
-
-  subgraph RET["Retrieval / Index"]
-    F["FAISS"] --- H["HNSW"]
-    H --- Q["Flat 32-bit"]
   end
 
   R --> E["Eval (Check relevance)"]
